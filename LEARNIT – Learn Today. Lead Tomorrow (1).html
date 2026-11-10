@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LEARNIT – Learn Today. Lead Tomorrow.</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#A9C4A4;--g2:#BBD2B6;--sage:#DCE8D8;--iv:#2B2D2A;--iv2:#E9E2D1;--ch:#2B2D2A;--mut:#5E625C;--brass:#A9843F;--deep:#3F5E45;--bg:#EEF4EA;--card:#F8FBF5;--tx:var(--ch);--line:#D0DDCB;
+--serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151A16;--card:#1D241F;--tx:#EFEBDD;--mut:#A9B1A5;--line:#2F3A32;--iv2:#1A211C;--sage:#3E5543}}
+:root[data-theme="dark"]{--bg:#151A16;--card:#1D241F;--tx:#EFEBDD;--mut:#A9B1A5;--line:#2F3A32;--iv2:#1A211C;--sage:#3E5543}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 var(--sans)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4vw,3rem)}h3{font-size:1.3rem}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1180px;margin:auto;padding:14px 24px;display:flex;align-items:center;gap:24px;justify-content:space-between}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.6rem;text-decoration:none;color:var(--g);display:flex;align-items:center;gap:10px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo{color:#B7CDB4}}
+.logo i{width:30px;height:30px;border-radius:50% 50% 50% 4px;background:var(--g);display:grid;place-items:center;color:var(--iv);font:800 .95rem var(--serif);font-style:normal}
+nav{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+nav a{padding:8px 12px;border-radius:99px;text-decoration:none;font-size:.92rem;font-weight:500;color:var(--mut)}
+nav a:hover{color:var(--tx)}nav a.on{background:var(--g);color:var(--iv)}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--g);color:var(--iv);padding:14px 26px;border-radius:99px;font:700 1rem var(--sans);text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{background:var(--g2);transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--tx);box-shadow:inset 0 0 0 1.5px var(--tx)}
+.btn.o:hover{background:var(--tx);color:var(--bg)}
+main{max-width:1180px;margin:auto;padding:0 24px}
+.pg{display:none;padding:64px 0 88px}.pg.on{display:block}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;min-height:68vh}
+.hero p.l{font-size:1.2rem;color:var(--mut)}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.stage{position:relative;aspect-ratio:4/5;background:var(--g);border-radius:200px 200px 24px 24px;padding:36px 26px;color:var(--iv);overflow:hidden}
+.stage:before{content:"";position:absolute;inset:auto -20% -30% -20%;height:60%;background:radial-gradient(closest-side,var(--g2),transparent);}
+.path{position:relative;display:grid;gap:12px;margin-top:92px}
+.step{background:rgba(247,244,236,.1);border:1px solid rgba(247,244,236,.22);border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:500;opacity:0;transform:translateY(14px);animation:up .6s forwards}
+.step:nth-child(2){animation-delay:.5s}.step:nth-child(3){animation-delay:1s}.step:nth-child(4){animation-delay:1.5s;background:var(--iv);color:var(--g);font-weight:700}
+.step small{opacity:.75}
+@keyframes up{to{opacity:1;transform:none}}
+.stage h4{position:absolute;top:34px;left:0;right:0;text-align:center;font:600 1.05rem var(--serif);margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:48px 0}
+.stats div{padding:26px 20px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats b{display:block;font:800 2.3rem var(--serif);color:var(--g)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .stats b{color:#B7CDB4}}
+.stats span{color:var(--mut);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column}
+.card .tag{align-self:flex-start;background:var(--sage);color:var(--g);font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:99px;margin-bottom:16px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .card .tag{color:var(--iv)}}
+.card p{color:var(--mut);font-size:.96rem}
+.meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line);font-size:.88rem;color:var(--mut)}
+.meta button{font:700 .9rem var(--sans);background:none;border:0;color:var(--g);cursor:pointer;padding:6px 0}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .meta button{color:#B7CDB4}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 32px}
+.chips button{font:500 .92rem var(--sans);padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--tx);cursor:pointer}
+.chips button.on{background:var(--g);color:var(--iv);border-color:var(--g)}
+.band{background:var(--g);color:var(--iv);border-radius:28px;padding:56px;margin-top:64px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.band h2{margin:0;max-width:16ch}.band .btn{background:var(--iv);color:var(--g)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.big{font:800 clamp(3rem,7vw,5rem) var(--serif);color:var(--g);line-height:1}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .big{color:#B7CDB4}}
+.row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.q{font:400 1.3rem/1.5 var(--serif)}
+.who{display:flex;align-items:center;gap:12px;margin-top:20px;font-size:.9rem;color:var(--mut)}
+.av{width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--g);color:var(--iv);display:grid;place-items:center;font:700 .95rem var(--serif)}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
+form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;display:grid;gap:18px}
+label{font-weight:700;font-size:.9rem;display:grid;gap:6px}
+input,select,textarea{font:400 1rem var(--sans);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--tx);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--sage)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.err{color:#B3261E;font-size:.84rem;font-weight:500;min-height:1em}
+.ok{text-align:center;padding:48px 24px}.ok .tick{width:72px;height:72px;border-radius:50%;background:var(--g);color:var(--iv);display:grid;place-items:center;margin:0 auto 20px;font-size:2rem}
+.side{background:var(--g);color:var(--iv);border-radius:24px;padding:32px}
+.side li{margin-bottom:12px}.side ul{padding-left:18px;margin:0}
+.info{display:grid;gap:18px}.info div{padding-bottom:18px;border-bottom:1px solid var(--line)}.info b{display:block;font-family:var(--serif);font-size:1.15rem}
+footer{background:var(--g);color:var(--iv);margin-top:40px}
+footer .in{max-width:1180px;margin:auto;padding:40px 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.9rem}
+footer b{font:800 1.5rem var(--serif)}
+.eyes{color:var(--mut);font-weight:700;margin-bottom:12px;font-size:.95rem}
+@media(max-width:860px){.hero,.two{grid-template-columns:1fr}.stage{max-width:380px}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.row{grid-template-columns:1fr;gap:8px}.f2{grid-template-columns:1fr}.band{padding:36px 28px}.bar{flex-direction:column;align-items:flex-start;gap:8px}nav{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.step{animation:none;opacity:1;transform:none}.btn{transition:none}}
+.logo,.stats b,.big,.meta button,.card .tag{color:var(--deep)}
+.step{background:rgba(255,255,255,.45);border-color:rgba(43,45,42,.15)}
+.stage:before{background:radial-gradient(closest-side,var(--g2),transparent)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .card .tag{color:#E6EEE3}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#EEF4EA;--card:#F8FBF5;--tx:#2B2D2A;--mut:#5E625C;--line:#D0DDCB;--iv2:#E9E2D1;--sage:#DCE8D8}:root:not([data-theme="light"]) .logo,:root:not([data-theme="light"]) .stats b,:root:not([data-theme="light"]) .big,:root:not([data-theme="light"]) .meta button,:root:not([data-theme="light"]) .card .tag{color:var(--deep)}}
+.abimg{margin-top:44px;border-radius:24px;overflow:hidden;max-height:420px;box-shadow:0 12px 32px rgba(0,0,0,.08);background:linear-gradient(135deg,var(--deep),#243a29);position:relative}
+.abimg img{display:block;width:100%;height:100%;max-height:420px;object-fit:cover}
+.abimg .abimg-fallback{display:none;padding:56px 32px;color:#F8FBF5;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:12px}
+.abimg .abimg-fallback h3{color:#F8FBF5;font-size:1.8rem;margin:0}
+.abimg .abimg-fallback p{color:var(--g);max-width:54ch;margin:0}
+.mt{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:24px}
+.mt .card{align-items:center;text-align:center;padding:32px 24px 26px;border-radius:22px;background:var(--card);border:1.5px solid var(--line);position:relative;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.mt .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(63,94,69,.12);border-color:var(--g)}
+.mt-avatar-wrap{position:relative;width:124px;height:124px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center}
+.mt-avatar-svg{width:120px;height:120px;display:block;filter:drop-shadow(0 6px 14px rgba(63,94,69,.15))}
+.mt-verified{position:absolute;bottom:4px;right:6px;width:24px;height:24px;background:var(--deep);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;border:2.5px solid var(--card);box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.mt-role-pill{display:inline-block;background:var(--sage);color:var(--deep);font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:99px;margin-bottom:12px;letter-spacing:.01em}
+.mt h3{font-size:1.35rem;margin:0 0 4px}
+.mt .mt-title{color:var(--mut);font-size:.88rem;font-weight:600;margin-bottom:10px}
+.mt .mt-bio{font-size:.92rem;color:var(--tx);line-height:1.55;margin:0 0 14px}
+.mt-skills{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.mt-skills span{background:var(--bg);border:1px solid var(--line);font-size:.74rem;font-weight:600;color:var(--mut);padding:3px 9px;border-radius:99px}
+.mt-stats{display:flex;align-items:center;justify-content:center;gap:12px;font-size:.82rem;color:var(--mut);padding-top:14px;border-top:1px solid var(--line);width:100%;margin-bottom:16px}
+.mt-stats b{color:var(--deep);font-weight:700}
+.mt-stats .star{color:#D97706}
+.mt .btn{width:100%;padding:10px 16px;font-size:.9rem;border-radius:12px}
+.dt{display:grid;grid-template-columns:1.5fr 1fr;gap:44px;align-items:start;margin-top:20px}.pc{position:sticky;top:90px}.pc .btn{align-self:flex-start;margin-top:6px}
+.fx{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:20px 0 28px}.fx div{background:var(--card);padding:14px 16px}.fx small{display:block;color:var(--mut)}
+.ck,.cu{padding-left:20px;margin:0 0 28px}.ck li,.cu li{margin-bottom:8px}.ck li::marker{content:"✓  ";color:var(--deep);font-weight:700}
+.nt{background:var(--sage);border-radius:12px;padding:12px 16px;font-size:.92rem;margin-bottom:18px}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+@media(max-width:860px){.dt{grid-template-columns:1fr}.pc{position:static}}
+.modal-backdrop{position:fixed;inset:0;background:rgba(21,26,22,.65);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.modal-backdrop.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:36px 30px;max-width:440px;width:100%;text-align:center;box-shadow:0 24px 48px rgba(0,0,0,.22);position:relative;transform:scale(.95);transition:transform .2s ease}
+.modal-backdrop.open .modal-box{transform:scale(1)}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:0;font-size:1.8rem;line-height:1;color:var(--mut);cursor:pointer;padding:4px 8px;border-radius:8px}
+.modal-close:hover{color:var(--tx);background:var(--sage)}
+.modal-icon{width:64px;height:64px;border-radius:50%;background:var(--sage);color:var(--deep);display:grid;place-items:center;margin:0 auto 18px;font-size:1.8rem}
+/* Admin Dashboard styles */
+.adm-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.adm-badge{background:var(--sage);color:var(--deep);font-weight:700;font-size:.82rem;padding:4px 10px;border-radius:99px}
+.adm-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.adm-tab{background:var(--card);border:1px solid var(--line);color:var(--tx);padding:10px 18px;border-radius:12px;font:700 .9rem var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.adm-tab:hover{background:var(--sage);color:var(--deep)}
+.adm-tab.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.adm-tab .badge{background:var(--card);color:var(--tx);font-size:.72rem;padding:2px 7px;border-radius:99px}
+.adm-tab.on .badge{background:#fff;color:var(--deep)}
+.adm-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:28px}
+.adm-kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.adm-kpi span{display:block;color:var(--mut);font-size:.85rem;margin-bottom:4px}
+.adm-kpi b{font:800 2rem var(--serif);color:var(--deep)}
+.adm-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.adm-search{display:flex;gap:8px;flex:1;max-width:400px}
+.adm-table-wrap{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow-x:auto}
+.adm-table{width:100%;border-collapse:collapse;text-align:left;font-size:.9rem}
+.adm-table th{background:var(--bg);color:var(--mut);font-weight:700;padding:12px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+.adm-table td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+.adm-table tr:last-child td{border-bottom:0}
+.adm-table tr:hover td{background:rgba(169,196,164,.08)}
+.adm-tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:.76rem;font-weight:700}
+.adm-tag.pending{background:#FDF3D6;color:#8A6100}
+.adm-tag.approved{background:#DEF7EC;color:#03543F}
+.adm-tag.rejected{background:#FDE8E8;color:#9B1C1C}
+.adm-tag.active{background:#DEF7EC;color:#03543F}
+.btn-sm{padding:6px 14px;font-size:.82rem;border-radius:8px;display:inline-block;cursor:pointer;border:0}
+.btn-sm.o{background:transparent;box-shadow:inset 0 0 0 1px var(--line);color:var(--tx)}
+.btn-sm.o:hover{background:var(--line)}
+.btn-sm.danger{background:#FDE8E8;color:#9B1C1C}
+.btn-sm.danger:hover{background:#FBD5D5}
+.btn-sm.success{background:#DEF7EC;color:#03543F}
+.btn-sm.success:hover{background:#BCF0DA}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#home"><i>L</i>LEARNIT</a>
+<nav id="nav" aria-label="Main">
+<a href="#home">Home</a><a href="#courses">Courses</a><a href="#benefits">Benefits</a><a href="#about">About Us</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact Us</a><a href="#admin" id="navAdmin" style="display:none;background:var(--deep);color:#fff">Admin Portal</a><a href="#dashboard" id="navAcc">Sign in</a><a href="#register" class="btn" style="padding:8px 18px;margin-left:6px">Register</a>
+</nav></div></header>
+
+<main>
+<!-- HOME -->
+<section class="pg" id="home">
+<div class="hero">
+<div>
+<p class="eyes">AI and digital skills for students and working professionals</p>
+<h1>Learn Today. Lead Tomorrow.</h1>
+<p class="l">LEARNIT teaches the AI and digital skills employers are hiring for. Small live classes, real projects and mentors who work in the field.</p>
+<div class="cta"><a class="btn" href="#register">Register for a course</a><a class="btn o" href="#courses">Browse courses</a></div>
+</div>
+<div class="stage" aria-label="Example learning path">
+<h4>Your 12-week path</h4>
+<div class="path">
+<div class="step"><span>Python for AI</span><small>Weeks 1–3</small></div>
+<div class="step"><span>Machine Learning</span><small>Weeks 4–7</small></div>
+<div class="step"><span>Generative AI Projects</span><small>Weeks 8–11</small></div>
+<div class="step"><span>Portfolio and certificate</span><small>Week 12</small></div>
+</div></div></div>
+<div class="stats">
+<div><b>12,000+</b><span>learners trained</span></div>
+<div><b>8</b><span>career-ready courses</span></div>
+<div><b>94%</b><span>finish their course</span></div>
+<div><b>4.8/5</b><span>average learner rating</span></div>
+</div>
+<h2>What you can learn</h2>
+<div class="grid" id="homeCards"></div>
+<div class="band"><h2>Your next role starts with one course.</h2><a class="btn" href="#register">Join the next batch</a></div>
+</section>
+
+<!-- COURSES -->
+<section class="pg" id="courses">
+<h2>Courses</h2>
+<p>Pick a track by goal. Every course includes live classes, a graded project and a certificate.</p>
+<div class="chips" id="chips"></div>
+<div class="grid" id="courseGrid"></div>
+</section>
+
+<!-- BENEFITS -->
+<section class="pg" id="benefits">
+<h2>Why learn AI and digital skills now</h2>
+<p>These skills are moving from “nice to have” to the baseline for most jobs.</p>
+<div class="two" style="margin-top:36px">
+<div>
+<div class="big">3×</div><p>more job postings mention AI skills than three years ago.</p>
+<div class="big" style="margin-top:28px">Higher pay</div><p>Professionals who add data and AI skills often move into better-paid roles.</p>
+</div>
+<div>
+<div class="row" style="grid-template-columns:1fr"><div><h3>Get hired faster</h3><p>Build a portfolio of real projects that you can show in interviews.</p></div></div>
+<div class="row" style="grid-template-columns:1fr"><div><h3>Work smarter today</h3><p>Use AI tools to automate reports, research and repetitive tasks in your current job.</p></div></div>
+<div class="row" style="grid-template-columns:1fr"><div><h3>Stay relevant</h3><p>Learn the fundamentals, so you can adapt as tools change.</p></div></div>
+<div class="row" style="grid-template-columns:1fr"><div><h3>Learn on your schedule</h3><p>Evening and weekend batches for working professionals.</p></div></div>
+</div></div>
+<div class="band"><h2>See the courses that build these skills.</h2><a class="btn" href="#courses">View courses</a></div>
+</section>
+
+<!-- ABOUT -->
+<section class="pg" id="about">
+<div class="two">
+<div><h2>We teach the skills we use at work.</h2>
+<p>LEARNIT is an education company for AI and digital skills. We started with one idea: people learn best from practitioners, on real problems, in small groups.</p>
+<p>Our mentors are data scientists, marketers and engineers who still work in industry. Every course ends with a project you can put in your portfolio.</p></div>
+<div class="info">
+<div><b>Our mission</b>Make practical AI skills accessible to every student and professional.</div>
+<div><b>Our approach</b>Live classes of 25 or fewer, weekly mentor reviews and project-based assessment.</div>
+<div><b>Our values</b>Clarity over jargon. Practice over theory. Honest outcomes.</div>
+</div></div>
+<div class="abimg">
+<img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" alt="Students and industry mentors collaborating on AI projects in class" loading="lazy" onerror="this.style.display='none';document.getElementById('abimgFallback').style.display='flex';">
+<div class="abimg-fallback" id="abimgFallback">
+<div style="font-size:2.8rem">🎓 ✦ 💡</div>
+<h3>Learn with Practitioners Who Build AI Every Day</h3>
+<p>Interactive cohorts, live real-world capstone projects, and direct 1-on-1 code reviews.</p>
+</div>
+</div>
+<div style="margin-top:54px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px">
+<div>
+<p class="eyes" style="margin:0">Industry Veterans</p>
+<h3 style="font-size:1.9rem;margin:4px 0 0">Meet some of our mentors</h3>
+</div>
+<p style="color:var(--mut);max-width:44ch;margin:0;font-size:.95rem">Active practitioners guiding your projects, sharing real production code, and prepping you for tech interviews.</p>
+</div>
+<div class="mt">
+<!-- Dr. Meera Joshi -->
+<article class="card">
+<div class="mt-avatar-wrap">
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-avatar-svg" aria-label="Portrait of Dr. Meera Joshi">
+<defs>
+<radialGradient id="meera-bg" cx="50%" cy="40%" r="60%">
+<stop offset="0%" stop-color="#EAF2E8"/>
+<stop offset="100%" stop-color="#C2DCBD"/>
+</radialGradient>
+<linearGradient id="meera-coat" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#2D4632"/>
+<stop offset="100%" stop-color="#1E3223"/>
+</linearGradient>
+<linearGradient id="meera-skin" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#F3C3A3"/>
+<stop offset="100%" stop-color="#E1A987"/>
+</linearGradient>
+<linearGradient id="meera-hair" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#231F20"/>
+<stop offset="100%" stop-color="#151213"/>
+</linearGradient>
+<clipPath id="meera-clip">
+<circle cx="60" cy="60" r="56"/>
+</clipPath>
+</defs>
+<circle cx="60" cy="60" r="57" fill="#DCE8D8" stroke="#3F5E45" stroke-width="2.5"/>
+<g clip-path="url(#meera-clip)">
+<circle cx="60" cy="60" r="56" fill="url(#meera-bg)"/>
+<circle cx="25" cy="35" r="16" stroke="rgba(63,94,69,0.15)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<circle cx="95" cy="45" r="18" stroke="rgba(63,94,69,0.15)" stroke-width="1.5"/>
+<path d="M22 120 C22 92 38 82 60 82 C82 82 98 92 98 120 Z" fill="url(#meera-coat)"/>
+<path d="M48 82 L60 102 L72 82 Z" fill="#F8FBF5"/>
+<path d="M40 86 L54 106 L48 120" stroke="#3F5E45" stroke-width="2" fill="none"/>
+<path d="M80 86 L66 106 L72 120" stroke="#3F5E45" stroke-width="2" fill="none"/>
+<polygon points="56,92 64,92 60,104" fill="#A9843F"/>
+<rect x="52" y="66" width="16" height="20" rx="3" fill="url(#meera-skin)"/>
+<path d="M52 76 Q60 81 68 76" stroke="rgba(0,0,0,0.12)" stroke-width="2" fill="none"/>
+<circle cx="60" cy="36" r="23" fill="url(#meera-hair)"/>
+<circle cx="60" cy="20" r="12" fill="url(#meera-hair)"/>
+<path d="M43 46 C43 36 77 36 77 46 C77 62 70 73 60 73 C50 73 43 62 43 46 Z" fill="url(#meera-skin)"/>
+<path d="M43 44 C45 32 75 30 77 44 C74 38 68 36 60 37 C52 36 46 38 43 44 Z" fill="url(#meera-hair)"/>
+<path d="M42 43 Q41 53 44 58 C43 54 44 47 46 45" fill="url(#meera-hair)"/>
+<path d="M78 43 Q79 53 76 58 C77 54 76 47 74 45" fill="url(#meera-hair)"/>
+<path d="M47 48 Q52 46 55 48" stroke="#1A1818" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M65 48 Q68 46 73 48" stroke="#1A1818" stroke-width="1.8" stroke-linecap="round"/>
+<circle cx="51" cy="52" r="2.2" fill="#1A1818"/>
+<circle cx="69" cy="52" r="2.2" fill="#1A1818"/>
+<circle cx="51.6" cy="51.4" r="0.7" fill="#fff"/>
+<circle cx="69.6" cy="51.4" r="0.7" fill="#fff"/>
+<circle cx="51" cy="52" r="7.5" stroke="#3F5E45" stroke-width="1.8" fill="rgba(255,255,255,0.2)"/>
+<circle cx="69" cy="52" r="7.5" stroke="#3F5E45" stroke-width="1.8" fill="rgba(255,255,255,0.2)"/>
+<path d="M58.5 52 L61.5 52" stroke="#3F5E45" stroke-width="1.8"/>
+<path d="M43.5 51 L41 50" stroke="#3F5E45" stroke-width="1.6"/>
+<path d="M76.5 51 L79 50" stroke="#3F5E45" stroke-width="1.6"/>
+<path d="M59 55 Q60 59 62 59" stroke="#C98B68" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+<path d="M54 64 Q60 68 66 64" stroke="#873F3F" stroke-width="2" stroke-linecap="round" fill="none"/>
+</g>
+</svg>
+<span class="mt-verified" title="Verified Antigravity Mentor">✓</span>
+</div>
+<span class="mt-role-pill">Machine Learning Lead</span>
+<h3>Dr. Meera Joshi</h3>
+<div class="mt-title">12 yrs in Applied AI Research · Ex-Research Lead</div>
+<p class="mt-bio">Guides learners through neural network architectures, ML pipelines, and production deployments with clear, math-intuitive intuition.</p>
+<div class="mt-skills">
+<span>Python</span><span>PyTorch</span><span>Deep Learning</span><span>Model Ops</span>
+</div>
+<div class="mt-stats">
+<span><span class="star">★</span> <b>4.95</b></span>
+<span><b>1,400+</b> trained</span>
+<span><b>14</b> batches</span>
+</div>
+<button class="btn o" data-mentor="Dr. Meera Joshi">See 3 courses by Dr. Meera →</button>
+</article>
+
+<!-- Karan Patil -->
+<article class="card">
+<div class="mt-avatar-wrap">
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-avatar-svg" aria-label="Portrait of Karan Patil">
+<defs>
+<radialGradient id="karan-bg" cx="50%" cy="40%" r="60%">
+<stop offset="0%" stop-color="#F2F6ED"/>
+<stop offset="100%" stop-color="#C8DEC4"/>
+</radialGradient>
+<linearGradient id="karan-shirt" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#3A4D3E"/>
+<stop offset="100%" stop-color="#223326"/>
+</linearGradient>
+<linearGradient id="karan-skin" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#E8B08B"/>
+<stop offset="100%" stop-color="#D49770"/>
+</linearGradient>
+<linearGradient id="karan-hair" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#241E1C"/>
+<stop offset="100%" stop-color="#120F0E"/>
+</linearGradient>
+<clipPath id="karan-clip">
+<circle cx="60" cy="60" r="56"/>
+</clipPath>
+</defs>
+<circle cx="60" cy="60" r="57" fill="#DCE8D8" stroke="#3F5E45" stroke-width="2.5"/>
+<g clip-path="url(#karan-clip)">
+<circle cx="60" cy="60" r="56" fill="url(#karan-bg)"/>
+<rect x="24" y="44" width="6" height="18" rx="2" fill="rgba(63,94,69,0.12)"/>
+<rect x="33" y="36" width="6" height="26" rx="2" fill="rgba(63,94,69,0.14)"/>
+<rect x="85" y="40" width="6" height="22" rx="2" fill="rgba(63,94,69,0.12)"/>
+<path d="M20 120 C20 90 36 82 60 82 C84 82 100 90 100 120 Z" fill="url(#karan-shirt)"/>
+<path d="M48 82 L60 96 L52 110" stroke="#BBD2B6" stroke-width="2.2" fill="none"/>
+<path d="M72 82 L60 96 L68 110" stroke="#BBD2B6" stroke-width="2.2" fill="none"/>
+<path d="M52 82 L60 92 L68 82 Z" fill="#EAF0E8"/>
+<rect x="52" y="66" width="16" height="20" rx="3" fill="url(#karan-skin)"/>
+<path d="M52 75 Q60 80 68 75" stroke="rgba(0,0,0,0.1)" stroke-width="2" fill="none"/>
+<path d="M43 44 C43 32 77 32 77 44 C77 62 71 73 60 73 C49 73 43 62 43 44 Z" fill="url(#karan-skin)"/>
+<path d="M41 42 C41 27 55 24 60 24 C67 24 79 26 79 40 C75 35 69 33 60 34 C50 34 44 38 41 42 Z" fill="url(#karan-hair)"/>
+<path d="M47 31 Q56 26 67 29" stroke="#3D322E" stroke-width="2" stroke-linecap="round"/>
+<path d="M51 27 Q60 23 72 26" stroke="#3D322E" stroke-width="2" stroke-linecap="round"/>
+<path d="M46 47 Q51 45 56 46" stroke="#1A1818" stroke-width="2.2" stroke-linecap="round"/>
+<path d="M64 46 Q69 45 74 47" stroke="#1A1818" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="51" cy="51" r="2.4" fill="#1A1818"/>
+<circle cx="69" cy="51" r="2.4" fill="#1A1818"/>
+<circle cx="51.7" cy="50.3" r="0.8" fill="#fff"/>
+<circle cx="69.7" cy="50.3" r="0.8" fill="#fff"/>
+<path d="M59 52 L60 58 L63 58" stroke="#BD7F5A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M45 56 C46 68 53 73 60 73 C67 73 74 68 75 56 C74 65 67 71 60 71 C53 71 46 65 45 56 Z" fill="rgba(36,30,28,0.22)"/>
+<path d="M54 63 Q60 67 66 63" stroke="#873F3F" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+</g>
+</svg>
+<span class="mt-verified" title="Verified Antigravity Mentor">✓</span>
+</div>
+<span class="mt-role-pill">Data Analytics Mentor</span>
+<h3>Karan Patil</h3>
+<div class="mt-title">10 yrs in Enterprise Analytics · Analytics Lead</div>
+<p class="mt-bio">Leads enterprise analytics at a major retail brand. Teaches students how to translate raw tables into dashboards and business strategy.</p>
+<div class="mt-skills">
+<span>SQL</span><span>PowerBI</span><span>Data Modeling</span><span>Product Metrics</span>
+</div>
+<div class="mt-stats">
+<span><span class="star">★</span> <b>4.88</b></span>
+<span><b>980+</b> trained</span>
+<span><b>11</b> batches</span>
+</div>
+<button class="btn o" data-mentor="Karan Patil">See 3 courses by Karan →</button>
+</article>
+
+<!-- Sana Khan -->
+<article class="card">
+<div class="mt-avatar-wrap">
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-avatar-svg" aria-label="Portrait of Sana Khan">
+<defs>
+<radialGradient id="sana-bg" cx="50%" cy="40%" r="60%">
+<stop offset="0%" stop-color="#F7FAF5"/>
+<stop offset="100%" stop-color="#CDE3CA"/>
+</radialGradient>
+<linearGradient id="sana-top" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#A9843F"/>
+<stop offset="100%" stop-color="#735620"/>
+</linearGradient>
+<linearGradient id="sana-skin" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#F2C5A8"/>
+<stop offset="100%" stop-color="#E2AE8F"/>
+</linearGradient>
+<linearGradient id="sana-hair" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#2A201C"/>
+<stop offset="100%" stop-color="#140D0B"/>
+</linearGradient>
+<clipPath id="sana-clip">
+<circle cx="60" cy="60" r="56"/>
+</clipPath>
+</defs>
+<circle cx="60" cy="60" r="57" fill="#DCE8D8" stroke="#3F5E45" stroke-width="2.5"/>
+<g clip-path="url(#sana-clip)">
+<circle cx="60" cy="60" r="56" fill="url(#sana-bg)"/>
+<path d="M28 32 L30 26 L32 32 L38 34 L32 36 L30 42 L28 36 L22 34 Z" fill="rgba(169,132,63,0.22)"/>
+<path d="M92 36 L93.5 32 L95 36 L99 37.5 L95 39 L93.5 43 L92 39 L88 37.5 Z" fill="rgba(63,94,69,0.18)"/>
+<path d="M38 40 C35 60 34 85 40 102 C43 102 46 95 44 85 C42 75 42 60 44 45 Z" fill="url(#sana-hair)"/>
+<path d="M82 40 C85 60 86 85 80 102 C77 102 74 95 76 85 C78 75 78 60 76 45 Z" fill="url(#sana-hair)"/>
+<path d="M22 120 C22 92 38 83 60 83 C82 83 98 92 98 120 Z" fill="url(#sana-top)"/>
+<path d="M50 83 L60 100 L70 83 Z" fill="#F8FBF5"/>
+<circle cx="60" cy="95" r="2.5" fill="#A9843F"/>
+<rect x="52" y="66" width="16" height="20" rx="3" fill="url(#sana-skin)"/>
+<path d="M52 75 Q60 80 68 75" stroke="rgba(0,0,0,0.1)" stroke-width="2" fill="none"/>
+<path d="M43 45 C43 34 77 34 77 45 C77 62 71 73 60 73 C49 73 43 62 43 45 Z" fill="url(#sana-skin)"/>
+<path d="M40 40 C43 26 58 24 60 24 C68 24 79 27 79 38 C75 32 68 31 58 32 C47 33 43 36 40 40 Z" fill="url(#sana-hair)"/>
+<path d="M41 40 Q39 56 43 65 C41 58 40 50 42 42 Z" fill="url(#sana-hair)"/>
+<path d="M79 38 Q81 54 77 64 C79 57 80 49 78 40 Z" fill="url(#sana-hair)"/>
+<circle cx="41.5" cy="56" r="2" fill="#A9843F"/>
+<circle cx="78.5" cy="56" r="2" fill="#A9843F"/>
+<path d="M46 47 Q51 44 56 46" stroke="#1A1818" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M64 46 Q69 44 74 47" stroke="#1A1818" stroke-width="1.8" stroke-linecap="round"/>
+<circle cx="51" cy="51" r="2.4" fill="#1A1818"/>
+<circle cx="69" cy="51" r="2.4" fill="#1A1818"/>
+<circle cx="51.6" cy="50.3" r="0.8" fill="#fff"/>
+<circle cx="69.6" cy="50.3" r="0.8" fill="#fff"/>
+<path d="M47.5 49 L46 47.5" stroke="#1A1818" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M72.5 49 L74 47.5" stroke="#1A1818" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M59 53 Q60 58 62 58" stroke="#CA8963" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+<path d="M53 63 Q60 68 67 63" stroke="#9A3B43" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+</g>
+</svg>
+<span class="mt-verified" title="Verified Antigravity Mentor">✓</span>
+</div>
+<span class="mt-role-pill">Generative AI Mentor</span>
+<h3>Sana Khan</h3>
+<div class="mt-title">8 yrs in AI Growth &amp; Tech · GenAI Consultant</div>
+<p class="mt-bio">Builds custom generative AI tools and automated content pipelines for marketing teams. Focuses on real-world agency workflows and prompt systems.</p>
+<div class="mt-skills">
+<span>Prompt Engineering</span><span>LLM Workflows</span><span>Automation</span><span>AI Marketing</span>
+</div>
+<div class="mt-stats">
+<span><span class="star">★</span> <b>4.92</b></span>
+<span><b>1,120+</b> trained</span>
+<span><b>12</b> batches</span>
+</div>
+<button class="btn o" data-mentor="Sana Khan">See 2 courses by Sana →</button>
+</article>
+</div>
+<div class="stats">
+<div><b>2021</b><span>founded</span></div><div><b>60+</b><span>industry mentors</span></div><div><b>150+</b><span>hiring partners</span></div><div><b>25</b><span>learners per class, maximum</span></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="pg" id="testimonials">
+<h2>What our learners say</h2>
+<p>Read honest reviews from alumni who leveled up their skills and careers with LEARNIT.</p>
+<div style="margin-top:32px">
+<div class="row"><div class="av" style="font-weight:700"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&h=120&q=80" alt="Aarav Kulkarni" loading="lazy" onerror="this.style.display='none'">AK</div><div><div style="color:#D97706;font-size:.95rem;margin-bottom:6px">★★★★★</div><p class="q">I went from managing spreadsheets to building forecasting models. My team now asks me to lead our analytics work.</p><div class="who"><b>Aarav Kulkarni</b> Business analyst, completed Data Analytics with AI</div></div></div>
+<div class="row"><div class="av" style="font-weight:700"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Priya Sharma" loading="lazy" onerror="this.style.display='none'">PS</div><div><div style="color:#D97706;font-size:.95rem;margin-bottom:6px">★★★★★</div><p class="q">As a final-year student, the portfolio project was what got me interviews. I accepted an ML internship before graduating.</p><div class="who"><b>Priya Sharma</b> Engineering student, completed Machine Learning Foundations</div></div></div>
+<div class="row"><div class="av" style="font-weight:700"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&h=120&q=80" alt="Rohan Deshmukh" loading="lazy" onerror="this.style.display='none'">RD</div><div><div style="color:#D97706;font-size:.95rem;margin-bottom:6px">★★★★★</div><p class="q">The evening batch fit around my job. I now use generative AI tools to cut my campaign planning time in half.</p><div class="who"><b>Rohan Deshmukh</b> Marketing manager, completed Generative AI for Work</div></div></div>
+</div>
+<div class="band"><h2>Write your own success story.</h2><a class="btn" href="#register">Register now</a></div>
+</section>
+
+<!-- REGISTER -->
+<section class="pg" id="register">
+<div class="two">
+<div><h2>Register for a course</h2><p>Fill in the form and our admissions team will confirm your seat within one working day.</p>
+<div class="side"><h3>What happens next</h3><ul><li>We review your registration.</li><li>An advisor calls to confirm your batch.</li><li>You receive your joining link and course kit.</li></ul></div></div>
+<div id="regWrap"></div></div>
+</section>
+
+<!-- CONTACT -->
+<section class="pg" id="contact">
+<div class="two">
+<div><h2>Contact us</h2><p>Not sure which course fits? Ask us. We reply within one working day.</p>
+<div class="info" style="margin-top:28px">
+<div><b>Email</b>hello@learnit.example</div>
+<div><b>Phone</b>+91 98765 43210, Mon–Sat, 9 am to 6 pm</div>
+<div><b>Campus</b>LEARNIT Learning Hub, College Road, Nashik, Maharashtra</div>
+</div></div>
+<div id="enqWrap"><form id="enq" novalidate>
+<label>Your name<input id="qn"><span class="err"></span></label>
+<label>Email<input id="qe" type="email"><span class="err"></span></label>
+<label>Your question<textarea id="qm" rows="5"></textarea><span class="err"></span></label>
+<button class="btn" type="submit">Send enquiry</button></form></div></div>
+</section>
+<section class="pg" id="course"></section><section class="pg" id="checkout"></section><section class="pg" id="dashboard"></section><section class="pg" id="signin"></section><section class="pg" id="admin"></section>
+</main>
+
+<div id="authModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+<div class="modal-box">
+<button class="modal-close" id="closeAuthModal" aria-label="Close dialog">&times;</button>
+<div class="modal-icon">🔒</div>
+<h2 id="authModalTitle" style="margin:0 0 10px;font-size:1.75rem">Sign In Required</h2>
+<p style="color:var(--mut);margin:0 0 24px;font-size:.98rem;line-height:1.5">You can browse the website freely, but you must sign in or create an account before registering for any course.</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<button class="btn" id="authModalSignInBtn" type="button">Sign in or create account</button>
+<button class="btn o" id="authModalCloseBtn" type="button">Continue browsing</button>
+</div>
+</div>
+</div>
+
+<footer><div class="in"><div><b>LEARNIT</b><br>Learn Today. Lead Tomorrow.</div><div style="text-align:right">AI &amp; Digital Skills Education<br>© 2026 LEARNIT · <a href="#admin" style="text-decoration:underline;color:inherit;font-weight:700">Admin Portal</a></div></div></footer>
+
+<script>
+var C=[
+{t:"AI Foundations",g:"Beginner",d:"Understand how AI works and use it confidently, with no coding needed.",w:"4 weeks"},
+{t:"Python for AI",g:"Beginner",d:"Learn Python from scratch with data and automation exercises.",w:"6 weeks"},
+{t:"Machine Learning Foundations",g:"Intermediate",d:"Build, test and explain models for prediction and classification.",w:"8 weeks"},
+{t:"Data Analytics with AI",g:"Intermediate",d:"Turn raw data into dashboards and decisions using SQL and AI tools.",w:"8 weeks"},
+{t:"Generative AI for Work",g:"Professionals",d:"Use prompts and AI assistants to write, research and automate faster.",w:"5 weeks"},
+{t:"Digital Marketing with AI",g:"Professionals",d:"Plan, run and measure campaigns with AI-assisted workflows.",w:"6 weeks"},
+{t:"Deep Learning and Generative Models",g:"Advanced",d:"Train neural networks and build a generative AI application.",w:"10 weeks"},
+{t:"AI Product Management",g:"Advanced",d:"Scope, launch and manage AI-powered products from idea to rollout.",w:"8 weeks"}];
+var D=[
+{p:0,s:'2026-11-18',i:'Dr. Meera Joshi',sch:'Tue and Thu, 7:00–8:30 pm IST',b:'Understand AI with no coding|Use AI tools in your daily work|Free completion certificate',m:'How AI works|Everyday AI tools|Prompting basics|Responsible and safe AI',r:'No prior experience needed.'},
+{p:0,s:'2026-11-25',i:'Karan Patil',sch:'Sat, 10:00 am–1:00 pm IST',b:'Write your first Python programs|Automate simple tasks|Free completion certificate',m:'Python basics|Data types and loops|Working with files and data|Mini automation project',r:'A laptop and internet. No coding experience.'},
+{p:3499,s:'2026-12-02',i:'Dr. Meera Joshi',sch:'Mon and Wed, 7:00–9:00 pm IST',b:'Build and test real ML models|Portfolio project for interviews|Career support and certificate',m:'Data preparation|Regression and classification|Model evaluation|Capstone project',r:'Basic Python and school-level maths.'},
+{p:2999,s:'2026-12-07',i:'Karan Patil',sch:'Sat and Sun, 11:00 am–1:00 pm IST',b:'Turn data into decisions|Build dashboards recruiters can see|Career support and certificate',m:'Spreadsheets and SQL|Cleaning data|Dashboards and charts|AI-assisted analysis',r:'Comfort with spreadsheets.'},
+{p:1999,s:'2026-12-14',i:'Sana Khan',sch:'Tue and Thu, 8:00–9:30 pm IST',b:'Cut repetitive work with AI|Learn prompt techniques that work|Certificate for your CV',m:'Prompt patterns|Writing and research|Automating reports|AI at work policy',r:'Open to all working professionals.'},
+{p:2999,s:'2027-01-05',i:'Sana Khan',sch:'Mon and Wed, 7:30–9:00 pm IST',b:'Plan and measure campaigns|Use AI for content and ads|Live campaign project',m:'Marketing basics|Content with AI|Ads and analytics|Campaign project',r:'No prior marketing experience.'},
+{p:5999,s:'2027-01-12',i:'Dr. Meera Joshi',sch:'Tue, Thu and Sat, 7:00–9:00 pm IST',b:'Train neural networks|Build a generative AI app|Advanced portfolio project',m:'Neural network basics|Vision and language models|Generative models|Deploy your app',r:'Machine Learning Foundations or equivalent.'},
+{p:4999,s:'2027-01-19',i:'Karan Patil',sch:'Sat, 10:00 am–1:00 pm IST',b:'Scope AI products|Work with engineers and data teams|Launch plan template and certificate',m:'AI product basics|Defining problems|Roadmaps and metrics|Launch and rollout',r:'2 years of work experience recommended.'}];
+var DEFAULT_STORE = {
+ admin: { email: 'admin@learnit.com', pass: 'admin123' },
+ instructors: [
+  { id: 'inst_1', name: 'Dr. Meera Joshi', email: 'meera.joshi@learnit.example', status: 'Approved', appliedDate: '2026-10-12', role: 'Machine Learning Lead' },
+  { id: 'inst_2', name: 'Karan Patil', email: 'karan.patil@learnit.example', status: 'Approved', appliedDate: '2026-10-15', role: 'Data Analytics Mentor' },
+  { id: 'inst_3', name: 'Sana Khan', email: 'sana.khan@learnit.example', status: 'Approved', appliedDate: '2026-10-20', role: 'Generative AI Mentor' },
+  { id: 'inst_4', name: 'Vikas Roy', email: 'vikas.roy@techmail.example', status: 'Pending', appliedDate: '2026-11-08', role: 'NLP & Deep Learning Specialist' },
+  { id: 'inst_5', name: 'Ananya Deshmukh', email: 'ananya.d@cloudai.example', status: 'Pending', appliedDate: '2026-11-09', role: 'AI Cloud Architect' }
+ ],
+ registrations: [
+  { id: 'reg_1', name: 'Aarav Kulkarni', email: 'aarav.k@example.com', phone: '9876543210', course: 'Data Analytics with AI', batch: 'Weekend mornings', date: '2026-11-02', status: 'Active', fee: 2999 },
+  { id: 'reg_2', name: 'Priya Sharma', email: 'priya.s@example.com', phone: '9823456781', course: 'Machine Learning Foundations', batch: 'Weekday evenings', date: '2026-11-04', status: 'Active', fee: 3499 },
+  { id: 'reg_3', name: 'Rohan Deshmukh', email: 'rohan.d@example.com', phone: '9765432109', course: 'Generative AI for Work', batch: 'Weekday evenings', date: '2026-11-06', status: 'Active', fee: 1999 },
+  { id: 'reg_4', name: 'Neha Verma', email: 'neha.v@example.com', phone: '9123456780', course: 'AI Foundations', batch: 'Weekday mornings', date: '2026-11-08', status: 'Active', fee: 0 },
+  { id: 'reg_5', name: 'Aditya Mehta', email: 'aditya.m@example.com', phone: '9988776655', course: 'Python for AI', batch: 'Weekend mornings', date: '2026-11-09', status: 'Payment pending', fee: 0 }
+ ],
+ schedules: {}
+};
+
+var STORE = DEFAULT_STORE;
+try {
+ var rawStore = localStorage.getItem('learnit_store');
+ if (rawStore) {
+  var pStore = JSON.parse(rawStore);
+  STORE = Object.assign({}, DEFAULT_STORE, pStore);
+  if (!STORE.instructors || !STORE.instructors.length) STORE.instructors = DEFAULT_STORE.instructors;
+  if (!STORE.registrations || !STORE.registrations.length) STORE.registrations = DEFAULT_STORE.registrations;
+  if (!STORE.schedules) STORE.schedules = {};
+ }
+} catch(e) {}
+
+function saveStore() {
+ try {
+  localStorage.setItem('learnit_store', JSON.stringify(STORE));
+ } catch(e) {}
+}
+
+C.forEach(function(c,k){
+ var d=D[k];
+ c.id=k;
+ c.p=d.p;
+ c.s=(STORE.schedules[k]&&STORE.schedules[k].s)?STORE.schedules[k].s:d.s;
+ c.i=(STORE.schedules[k]&&STORE.schedules[k].i)?STORE.schedules[k].i:d.i;
+ c.sch=(STORE.schedules[k]&&STORE.schedules[k].sch)?STORE.schedules[k].sch:d.sch;
+ c.b=d.b.split('|');
+ c.m=d.m.split('|');
+ c.r=d.r;
+});
+var G=["All","Beginner","Intermediate","Professionals","Advanced"],cur="All",curMentor="";
+function fmt(s){return new Date(s+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}
+function rup(n){return n?'₹'+n.toLocaleString('en-IN'):'Free'}
+function card(c){return '<article class="card"><span class="tag">'+c.g+'</span><h3>'+c.t+'</h3><p>'+c.d+'</p><p style="margin-bottom:14px"><b>Starts '+fmt(c.s)+'</b><br>with '+c.i+'</p><div class="meta"><span>'+c.w+' · <b>'+rup(c.p)+'</b></span><button data-k="d" data-i="'+c.id+'">View details</button></div></article>'}
+function drawCourses(){
+ var chipsEl=document.getElementById('chips');
+ if(chipsEl){
+  chipsEl.innerHTML=G.map(function(x){return '<button class="'+(x==cur?'on':'')+'" data-g="'+x+'">'+x+'</button>'}).join('');
+ }
+ var filtered=C.filter(function(c){
+  var gOk=(cur=="All"||c.g==cur);
+  var mOk=(!curMentor||c.i==curMentor);
+  return gOk&&mOk;
+ });
+ var banner='';
+ if(curMentor){
+  banner='<div class="nt" style="grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><span>Showing courses taught by <b>'+esc(curMentor)+'</b> ('+filtered.length+' courses)</span><button id="clearMentorFilter" class="btn o" style="padding:6px 14px;font-size:.82rem">Show all instructors</button></div>';
+ }
+ var gridEl=document.getElementById('courseGrid');
+ if(gridEl){
+  gridEl.innerHTML=banner+(filtered.length?filtered.map(card).join(''):'<div class="card" style="grid-column:1/-1;text-align:center;padding:36px"><p style="margin:0 0 16px">No courses found matching this criteria.</p><button id="clearMentorFilter" class="btn" style="align-self:center">Reset filters</button></div>');
+ }
+}
+document.getElementById('homeCards').innerHTML=[0,2,4].map(function(i){return card(C[i])}).join('');
+drawCourses();
+
+function showAuthModal(nextTarget){
+ NEXT=nextTarget||'register';
+ var m=document.getElementById('authModal');
+ if(m)m.classList.add('open');
+}
+function hideAuthModal(){
+ var m=document.getElementById('authModal');
+ if(m)m.classList.remove('open');
+}
+
+document.addEventListener('click',function(e){
+ if(e.target.id=='closeAuthModal'||e.target.id=='authModalCloseBtn'){hideAuthModal();return;}
+ if(e.target.id=='authModalSignInBtn'){hideAuthModal();go('signin');return;}
+ if(e.target.classList&&e.target.classList.contains('modal-backdrop')){hideAuthModal();return;}
+ if(e.target.id=='clearMentorFilter'){curMentor="";drawCourses();return;}
+ var mb=e.target.closest&&e.target.closest('[data-mentor]');
+ if(mb){
+  curMentor=mb.getAttribute('data-mentor');
+  cur="All";
+  drawCourses();
+  go('courses');
+  return;
+ }
+ var regLink=e.target.closest&&e.target.closest('a[href="#register"]');
+ if(regLink&&!signed()){
+  e.preventDefault();
+  showAuthModal('register');
+  return;
+ }
+ var g=e.target.getAttribute&&e.target.getAttribute('data-g');
+ if(g){cur=g;drawCourses();}
+ var t=e.target.closest&&e.target.closest('[data-k]');if(t)act(t.getAttribute('data-k'),t.getAttribute('data-i'));
+});
+window.addEventListener('keydown',function(e){if(e.key==='Escape')hideAuthModal();});
+
+var P=['home','courses','benefits','about','testimonials','register','contact','course','checkout','dashboard','signin','admin'];
+function route(){
+ var h=location.hash.slice(1);if(P.indexOf(h)<0)h='home';
+ P.forEach(function(p){
+  var el=document.getElementById(p);
+  if(el)el.classList.toggle('on',p==h);
+ });
+ document.querySelectorAll('#nav a').forEach(function(a){a.classList.toggle('on',a.getAttribute('href')=='#'+h&&!a.classList.contains('btn'))});
+ window.scrollTo(0,0);
+ if(window.R&&R[h])R[h]();
+ var na=document.getElementById('navAcc');
+ if(na&&window.S){
+  if(S.isAdmin){
+   na.textContent='Admin Portal';
+   na.setAttribute('href','#admin');
+  } else {
+   na.textContent=S.on?(S.role=='Instructor'?'Instructor Hub':'My Learning'):'Sign in';
+   na.setAttribute('href',S.on?'#dashboard':'#signin');
+  }
+ }
+ var naAdm=document.getElementById('navAdmin');
+ if(naAdm){
+  naAdm.style.display=(S&&S.isAdmin)?'inline-block':'none';
+ }
+}
+function chk(id,ok,msg){var el=document.getElementById(id);if(el&&el.nextElementSibling)el.nextElementSibling.textContent=ok?'':msg;return ok}
+function done(wrap,title,text){document.getElementById(wrap).innerHTML='<div class="ok"><div class="tick">✓</div><h3>'+title+'</h3><p style="margin:auto">'+text+'</p></div>'}
+var em=/^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+function renderRegister(){
+ var rw=document.getElementById('regWrap');
+ if(!rw)return;
+ if(!signed()){
+  rw.innerHTML='<div class="card" style="text-align:center;padding:44px 28px"><div class="modal-icon">🔒</div><h3 style="font-size:1.5rem;margin-bottom:8px">Sign in required to register</h3><p style="margin:0 auto 20px;color:var(--mut);max-width:44ch">You can browse the website and explore courses freely, but you must sign in or create an account before registering.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn" href="#signin">Sign in or create account</a><a class="btn o" href="#courses">Browse courses</a></div></div>';
+  return;
+ }
+ rw.innerHTML='<form id="reg" novalidate><div class="nt" style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><span>Signed in as <b>'+esc(S.name)+'</b> ('+esc(S.email)+')</span><span style="font-size:.84rem;color:var(--deep);font-weight:700">✓ Account verified</span></div><div class="f2"><label>Full name<input id="n" autocomplete="name" value="'+esc(S.name)+'"><span class="err"></span></label><label>Email<input id="e" type="email" autocomplete="email" value="'+esc(S.email)+'"><span class="err"></span></label></div><div class="f2"><label>Phone<input id="p" type="tel" autocomplete="tel"><span class="err"></span></label><label>I am a<select id="r"><option'+(S.role=='Student'?' selected':'')+'>Student</option><option'+(S.role!='Student'?' selected':'')+'>Working professional</option></select></label></div><label>Course<select id="c">'+C.map(function(c){return '<option'+(c.id===sel?' selected':'')+'>'+c.t+'</option>'}).join('')+'</select></label><label>Preferred batch<select id="b"><option>Weekday evenings</option><option>Weekend mornings</option><option>Weekday mornings</option></select></label><button class="btn" type="submit">Register for this course</button></form>';
+ document.getElementById('reg').addEventListener('submit',function(e){
+  e.preventDefault();
+  var nEl=document.getElementById('n'),eEl=document.getElementById('e'),pEl=document.getElementById('p');
+  var a=chk('n',nEl.value.trim().length>1,'Enter your full name.'),
+  b=chk('e',em.test(eEl.value),'Enter a valid email address.'),
+  d=chk('p',pEl.value.replace(/\D/g,'').length>=10,'Enter a phone number with at least 10 digits.');
+  if(a&&b&&d){
+   var cn=document.getElementById('c').value,cc=C.filter(function(x){return x.t==cn})[0];
+   enrol(cc,'registration',document.getElementById('b').value);
+   STORE.registrations.unshift({
+    id: 'reg_' + Date.now(),
+    name: nEl.value.trim(),
+    email: eEl.value.trim(),
+    phone: pEl.value.trim(),
+    course: cn,
+    batch: document.getElementById('b').value,
+    date: new Date().toISOString().slice(0,10),
+    status: cc.p ? 'Payment pending' : 'Active',
+    fee: cc.p
+   });
+   saveStore();
+   done('regWrap','You’re registered, '+nEl.value.trim().split(' ')[0]+'.','We’ve saved your seat in '+cn+'. An advisor will contact you within one working day.<br><br><a class="btn" href="#dashboard" style="margin-top:12px">Go to My Learning</a>');
+  }
+ });
+}
+
+document.getElementById('enq').addEventListener('submit',function(e){
+ e.preventDefault();
+ var a=chk('qn',qn.value.trim().length>1,'Enter your name.'),
+ b=chk('qe',em.test(qe.value),'Enter a valid email address.'),
+ d=chk('qm',qm.value.trim().length>4,'Write your question.');
+ if(a&&b&&d)done('enqWrap','Enquiry sent.','Thank you. We’ll reply to your email within one working day.');
+});
+var $=function(i){return document.getElementById(i)},esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML};
+var S={on:false,name:'',email:'',role:'Student',enrol:[],isAdmin:false},DOC=null,sel=0,NEXT=null,R={};
+try{var j=JSON.parse(localStorage.getItem('lit')||'null');if(j)S=Object.assign(S,j)}catch(x){}
+function save(){try{localStorage.setItem('lit',JSON.stringify(S))}catch(x){}if(DOC)DOC.set(JSON.parse(JSON.stringify(S))).catch(function(){})}
+function signed(){return (S.on&&S.email)||S.isAdmin}
+function mine(id){return S.enrol.filter(function(x){return x.id==id})[0]}
+function enrol(c,via,batch){var e=mine(c.id);if(!e){e={id:c.id,t:c.t,p:c.p,s:c.s,i:c.i,sch:c.sch,date:new Date().toISOString().slice(0,10),via:via,batch:batch||'',status:c.p?'Payment pending':'Active'};S.enrol.push(e)}save();return e}
+function go(h){if(location.hash=='#'+h)route();else location.hash=h}
+function need(n){if(signed())return true;showAuthModal(n);return false}
+function act(k,i){sel=+i;var c=C[sel];
+ if(k=='out'){S.on=false;S.isAdmin=false;save();renderRegister();go('home');return}
+ if(k=='d'){go('course');return}
+ if(!need({k:k,i:i}))return;
+ if(k=='e'){enrol(c,'enrolled');go('dashboard')}
+ else go('checkout')}
+function facts(c){return '<div class="fx"><div><small>Starts</small><b>'+fmt(c.s)+'</b></div><div><small>Schedule</small><b>'+c.sch+'</b></div><div><small>Duration</small><b>'+c.w+'</b></div><div><small>Level</small><b>'+c.g+'</b></div></div>'}
+R.register=function(){
+ renderRegister();
+ if(!signed())showAuthModal('register');
+};
+R.course=function(){var c=C[sel],e=mine(c.id),btn;
+ if(e&&e.status=='Active')btn='<a class="btn" href="#dashboard">Go to My Learning</a>';
+ else if(e)btn='<button class="btn" data-k="pay" data-i="'+c.id+'">Complete payment</button>';
+ else btn=c.p?'<button class="btn" data-k="b" data-i="'+c.id+'">Buy now</button>':'<button class="btn" data-k="e" data-i="'+c.id+'">Enroll for free</button>';
+ $('course').innerHTML='<a href="#courses" class="eyes" style="text-decoration:none">← All courses</a><div class="dt"><div><h2 style="margin-top:12px">'+c.t+'</h2><p>'+c.d+'</p>'+facts(c)+'<h3>What you gain</h3><ul class="ck">'+c.b.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><h3>Curriculum</h3><ol class="cu">'+c.m.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol><h3>Requirements</h3><p>'+c.r+'</p><h3>Your instructor</h3><p><b>'+c.i+'</b>. Works in the field and mentors every batch of this course.</p></div><aside class="card pc"><div class="big" style="font-size:2.6rem">'+rup(c.p)+'</div><p style="color:var(--mut)">'+(c.p?'One-time payment. Access starts after your payment is confirmed.':'No payment needed. Your seat is confirmed instantly.')+'</p><p><b>Starts '+fmt(c.s)+'</b><br>'+c.sch+'</p>'+btn+'<p style="margin:14px 0 0;font-size:.85rem;color:var(--mut)">Certificate on completion</p></aside></div>'};
+R.checkout=function(){var c=C[sel],e=mine(c.id),el=$('checkout');
+ if(!signed()){NEXT={k:'b',i:c.id};showAuthModal({k:'b',i:c.id});return}
+ if(!c.p){go('dashboard');return}
+ if(e&&e.status=='Active'){el.innerHTML='<div class="ok"><div class="tick">✓</div><h3>You already own this course.</h3><p style="margin:0 auto 20px">Find it in My Learning.</p><a class="btn" href="#dashboard">Go to My Learning</a></div>';return}
+ el.innerHTML='<h2>Checkout</h2><div class="dt"><form id="pay" novalidate><p class="nt">Test mode. This simulates a payment gateway and no real money is charged. Use card 4242 4242 4242 4242, any future expiry and any 3-digit code.</p><label>Name on card<input id="pn" value="'+esc(S.name)+'"><span class="err"></span></label><label>Card number<input id="pc" inputmode="numeric" placeholder="4242 4242 4242 4242"><span class="err"></span></label><div class="f2"><label>Expiry<input id="px" placeholder="MM/YY"><span class="err"></span></label><label>Code<input id="pv" inputmode="numeric" placeholder="123"><span class="err"></span></label></div><button class="btn" type="submit" id="pb">Pay '+rup(c.p)+'</button><span class="err" id="pe"></span></form><aside class="card pc"><h3>'+c.t+'</h3><p>with '+c.i+'</p><p><b>Starts '+fmt(c.s)+'</b></p><div class="meta"><span>Total</span><b>'+rup(c.p)+'</b></div></aside></div>';
+ $('pay').addEventListener('submit',function(ev){ev.preventDefault();
+  var ok=chk('pn',$('pn').value.trim().length>1,'Enter the name on the card.')&chk('pc',/^\d{16}$/.test($('pc').value.replace(/\s/g,'')),'Enter a 16-digit card number.')&chk('px',/^(0[1-9]|1[0-2])\/\d{2}$/.test($('px').value.trim()),'Use MM/YY.')&chk('pv',/^\d{3}$/.test($('pv').value.trim()),'Enter the 3-digit code.');
+  if(!ok)return;$('pb').disabled=true;$('pb').textContent='Processing payment…';$('pe').textContent='';
+  setTimeout(function(){if($('pc').value.replace(/\s/g,'')!='4242424242424242'){$('pb').disabled=false;$('pb').textContent='Pay '+rup(c.p);$('pe').textContent='Payment declined. In test mode only card 4242 4242 4242 4242 succeeds.';return}
+   var en=enrol(c,'purchase');en.status='Active';en.paid=c.p;en.receipt='LIT-'+Date.now().toString(36).toUpperCase();save();
+   var regMatch = STORE.registrations.filter(function(r){ return r.email.toLowerCase() == S.email.toLowerCase() && r.course == c.t; })[0];
+   if(regMatch){ regMatch.status='Active'; regMatch.fee=c.p; }
+   else {
+    STORE.registrations.unshift({
+     id: 'reg_' + Date.now(),
+     name: S.name,
+     email: S.email,
+     phone: '9876543210',
+     course: c.t,
+     batch: 'Standard batch',
+     date: new Date().toISOString().slice(0,10),
+     status: 'Active',
+     fee: c.p
+    });
+   }
+   saveStore();
+   el.innerHTML='<div class="ok"><div class="tick">✓</div><h3>Payment successful</h3><p style="margin:0 auto 8px">'+c.t+' is now in My Learning. It starts on '+fmt(c.s)+'.</p><p style="margin:0 auto 20px;color:var(--mut)">Receipt '+en.receipt+'</p><a class="btn" href="#dashboard">Go to My Learning</a></div>'},1300)})};
+R.dashboard=function(){var el=$('dashboard');
+ if(S.isAdmin){go('admin');return}
+ if(!signed()){el.innerHTML='<div class="ok"><h2>Sign in to see your courses</h2><p style="margin:0 auto 20px">Your registered and enrolled courses are saved to your account.</p><a class="btn" href="#signin">Sign in or create account</a></div>';return}
+ 
+ if(S.role=='Instructor'){
+  var instObj=STORE.instructors.filter(function(i){return i.email.toLowerCase()==S.email.toLowerCase()})[0];
+  var st=instObj?instObj.status:(S.apply?S.apply.status:'Pending');
+  var myCourses=C.filter(function(c){return c.i.toLowerCase().includes(S.name.toLowerCase().split(' ')[0])||(instObj&&c.i==instObj.name);});
+  var myCourseNames=myCourses.map(function(c){return c.t});
+  var myStudents=STORE.registrations.filter(function(r){return myCourseNames.indexOf(r.course)>=0});
+
+  var ih='<div class="dh"><div><p class="eyes">Instructor Portal</p><h2 style="margin:0">Welcome, '+esc(S.name)+'</h2><p style="color:var(--mut);margin:6px 0 0">'+esc(S.email)+' · Status: <span class="adm-tag '+(st.toLowerCase())+'">'+st+'</span></p></div><button class="btn o" data-k="out" data-i="0">Sign out</button></div>';
+
+  if(st=='Pending'){
+   ih+='<div class="card" style="padding:28px;border-left:4px solid #D97706"><h3 style="margin-bottom:8px">⏳ Application Under Review</h3><p style="margin:0">Your instructor profile has been submitted and is waiting for administrator approval. Once an admin approves your profile from the <b><a href="#admin" style="text-decoration:underline">Admin Portal</a></b>, you will be able to access your teaching schedule and student rosters.</p></div>';
+  } else if(st=='Rejected'){
+   ih+='<div class="card" style="padding:28px;border-left:4px solid #DC2626"><h3 style="margin-bottom:8px">Application Not Approved</h3><p style="margin:0">Your instructor application was reviewed and not accepted at this time. Please contact <b>admin@learnit.com</b> if you have any questions.</p></div>';
+  } else {
+   ih+='<div class="adm-kpis" style="margin-top:24px"><div class="adm-kpi"><span>Assigned Courses</span><b>'+myCourses.length+'</b></div><div class="adm-kpi"><span>Total Students</span><b>'+myStudents.length+'</b></div></div>';
+   ih+='<h3 style="margin-top:32px">Your Assigned Teaching Batches</h3>';
+   if(!myCourses.length)ih+='<div class="card"><p>No courses currently assigned by the administrator.</p></div>';
+   else ih+='<div class="grid">'+myCourses.map(function(c){return '<article class="card"><span class="tag">Teaching</span><h3>'+c.t+'</h3><p><b>Schedule:</b> '+c.sch+'<br><b>Starts:</b> '+fmt(c.s)+'<br><b>Duration:</b> '+c.w+'</p><p style="margin-top:auto;font-size:.85rem;color:var(--mut)">'+c.g+' track</p></article>'}).join('')+'</div>';
+   
+   ih+='<h3 style="margin-top:36px">Enrolled Students in Your Classes ('+myStudents.length+')</h3>';
+   if(!myStudents.length)ih+='<div class="card"><p>No students have registered for your courses yet.</p></div>';
+   else ih+='<div class="adm-table-wrap"><table class="adm-table"><thead><tr><th>Student</th><th>Email</th><th>Phone</th><th>Course</th><th>Batch</th><th>Status</th></tr></thead><tbody>'+
+    myStudents.map(function(s){return '<tr><td><b>'+esc(s.name)+'</b></td><td>'+esc(s.email)+'</td><td>'+esc(s.phone||'N/A')+'</td><td>'+esc(s.course)+'</td><td>'+esc(s.batch)+'</td><td><span class="adm-tag '+(s.status=='Active'?'active':'pending')+'">'+s.status+'</span></td></tr>'}).join('')+
+    '</tbody></table></div>';
+  }
+  el.innerHTML=ih;
+  return;
+ }
+
+ var h='<div class="dh"><div><p class="eyes">'+S.role+' dashboard</p><h2 style="margin:0">Hello, '+esc(S.name.split(' ')[0]||'there')+'</h2><p style="color:var(--mut);margin:6px 0 0">'+esc(S.email)+' · '+(DOC?'saved to your claude.ai account':'saved on this device')+'</p></div><button class="btn o" data-k="out" data-i="0">Sign out</button></div>';
+ h+='<h3>My learning</h3>';
+ if(!S.enrol.length)h+='<div class="card"><p>You have not registered for a course yet.</p><a class="btn" href="#courses" style="align-self:flex-start">Browse courses</a></div>';
+ else h+='<div class="grid">'+S.enrol.map(function(e){var act=e.status=='Active',days=Math.ceil((new Date(e.s+'T00:00:00')-new Date())/864e5);return '<article class="card"><span class="tag" style="'+(act?'':'background:#F1DFB4')+'">'+e.status+'</span><h3>'+e.t+'</h3><p style="margin-bottom:10px"><b>'+(days>0?'Starts '+fmt(e.s)+' (in '+days+' days)':'Started '+fmt(e.s))+'</b><br>'+e.sch+'<br>Instructor: '+e.i+'</p><p style="font-size:.85rem">Registered '+e.date+(e.batch?' · '+e.batch:'')+(e.paid?' · Paid '+rup(e.paid)+' · '+e.receipt:'')+'</p><div class="meta"><span>'+(act?(days>0?'Lessons open on start date':'Lessons open'):'Not yet paid')+'</span><button data-k="'+(act?'d':'pay')+'" data-i="'+e.id+'">'+(act?'Course details':'Complete payment')+'</button></div></article>'}).join('')+'</div>';
+ el.innerHTML=h;
+};
+
+R.signin=function(){var el=$('signin');
+ if(S.isAdmin){go('admin');return}
+ if(signed()){go('dashboard');return}
+ el.innerHTML='<div class="two"><div><h2>Sign in or create your account</h2><p>Your name, password, and registered courses are stored so you can return anytime to continue learning or teaching.</p><div class="side" style="margin-top:24px"><h3 style="font-size:1.15rem">Need Administrator Access?</h3><p style="font-size:.9rem;margin-bottom:12px">You can sign in with your Admin ID and password directly in this form by choosing <b>Admin</b> in the role dropdown, or open the dedicated Admin Portal.</p><a href="#admin" class="btn" style="background:var(--iv);color:var(--g);font-size:.88rem;padding:8px 18px">Open Dedicated Admin Portal →</a></div></div>'+
+ '<form id="si" novalidate>'+
+ '<label>Full name<input id="sn" value="'+esc(S.name)+'" autocomplete="name" placeholder="Your name or username"><span class="err"></span></label>'+
+ '<label>Email address<input id="se" type="email" value="'+esc(S.email)+'" autocomplete="email" placeholder="you@example.com"><span class="err"></span></label>'+
+ '<label>Password<div style="position:relative"><input id="sp" type="password" placeholder="Enter your password (min 4 characters)" autocomplete="current-password" style="padding-right:45px"><button type="button" id="togglePassBtn" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;cursor:pointer;font-size:1rem;color:var(--mut);padding:4px" aria-label="Toggle password visibility">👁️</button></div><span class="err" id="spErr"></span></label>'+
+ '<label>I am joining / signing in as<select id="sr"><option value="Student">Student</option><option value="Instructor">Instructor (needs admin approval)</option><option value="Admin">Admin</option></select></label>'+
+ '<button class="btn" type="submit" style="margin-top:6px">Sign In / Continue</button>'+
+ '<p style="margin:10px 0 0;font-size:.82rem;color:var(--mut);text-align:center">Admin Demo: <code>admin@learnit.com</code> / <code>admin123</code></p>'+
+ '</form></div>';
+
+ var tBtn=$('togglePassBtn');
+ if(tBtn){
+  tBtn.addEventListener('click',function(){
+   var spInput=$('sp');
+   if(spInput.type==='password'){
+    spInput.type='text';
+    tBtn.textContent='🔒';
+   } else {
+    spInput.type='password';
+    tBtn.textContent='👁️';
+   }
+  });
+ }
+
+ var snInput=$('sn'), seInput=$('se'), srSelect=$('sr');
+ function autoCheckAdmin(){
+  var v1=snInput.value.trim().toLowerCase(), v2=seInput.value.trim().toLowerCase();
+  if(v1===STORE.admin.email.toLowerCase()||v2===STORE.admin.email.toLowerCase()){
+   srSelect.value='Admin';
+  }
+ }
+ snInput.addEventListener('input',autoCheckAdmin);
+ seInput.addEventListener('input',autoCheckAdmin);
+
+ $('si').addEventListener('submit',function(ev){ev.preventDefault();
+  var rawName=$('sn').value.trim();
+  var rawEmail=$('se').value.trim().toLowerCase();
+  var pass=$('sp').value;
+  var roleChoice=$('sr').value;
+
+  // If user entered email in name field
+  if(rawName.indexOf('@')>0&&!rawEmail){
+   rawEmail=rawName.toLowerCase();
+   rawName=rawEmail.split('@')[0];
+  }
+
+  var a=chk('sn',rawName.length>1,'Enter your full name or username.'),
+  b=chk('se',em.test(rawEmail),'Enter a valid email address.'),
+  pOk=chk('spErr',pass.length>=4,'Enter a password with at least 4 characters.');
+
+  if(!a||!b||!pOk)return;
+
+  // Check Admin Login
+  if(rawEmail==STORE.admin.email.toLowerCase()||roleChoice=='Admin'||rawName.toLowerCase()==STORE.admin.email.toLowerCase()){
+   if(pass==STORE.admin.pass){
+    S.isAdmin=true; S.on=true; S.role='Admin'; S.name='Administrator'; S.email=STORE.admin.email;
+    save(); go('admin'); return;
+   } else {
+    chk('spErr',false,'Incorrect Admin password. (Default: admin123)');
+    return;
+   }
+  }
+
+  // Check saved user password
+  if(!STORE.users)STORE.users={};
+  if(STORE.users[rawEmail]&&STORE.users[rawEmail].password){
+   if(STORE.users[rawEmail].password!==pass){
+    chk('spErr',false,'Incorrect password for this email account.');
+    return;
+   }
+  } else {
+   STORE.users[rawEmail]={name:rawName,password:pass,role:roleChoice};
+   saveStore();
+  }
+
+  S.name=rawName; S.email=rawEmail; S.password=pass; S.on=true;
+  if(roleChoice[0]=='I'){
+   S.role='Instructor';
+   var exInst=STORE.instructors.filter(function(i){return i.email.toLowerCase()==rawEmail})[0];
+   if(!exInst){
+    STORE.instructors.unshift({
+     id:'inst_'+Date.now(),
+     name:S.name,
+     email:rawEmail,
+     status:'Pending',
+     appliedDate:new Date().toISOString().slice(0,10),
+     role:'Instructor Applicant'
+    });
+    saveStore();
+   }
+   S.apply={date:new Date().toISOString().slice(0,10),status:exInst?exInst.status:'Pending'};
+  } else {
+   S.role='Student';
+  }
+  save();var n2=NEXT;NEXT=null;if(n2){if(typeof n2=='string')go(n2);else act(n2.k,n2.i);}else go('dashboard')})};
+
+/* ADMIN CONTROLLER */
+var curAdmTab='instructors', admStudentQuery='', admStudentCourse='All', editingCourseId=null;
+
+R.admin=function(){
+ var el=$('admin');
+ if(!S.isAdmin){
+  el.innerHTML='<div class="two" style="max-width:960px;margin:24px auto">'+
+   '<div><p class="eyes">Management &amp; Operations</p><h2>LEARNIT Admin Portal</h2>'+
+   '<p>Sign in with administrative credentials to approve pending instructor applications, manage live cohort schedules, and look up registered students.</p>'+
+   '<div class="side"><h3>Default Stored Admin Credentials</h3>'+
+   '<p style="margin-bottom:8px"><b>Admin ID:</b> <code>admin@learnit.com</code><br><b>Password:</b> <code>admin123</code></p>'+
+   '<p style="font-size:.85rem;margin:0">These credentials are authenticated against the system backend store.</p>'+
+   '<button id="fillAdminDemoBtn" class="btn" type="button" style="margin-top:14px;background:var(--iv);color:var(--g);font-size:.88rem;padding:9px 18px">⚡ 1-Click Fill &amp; Login</button>'+
+   '</div></div>'+
+   '<form id="adminLoginForm" novalidate>'+
+   '<h3 style="margin-top:0">Sign In as Administrator</h3>'+
+   '<label>Admin ID / Email<input id="admEmail" type="email" placeholder="admin@learnit.com" value="admin@learnit.com"><span class="err"></span></label>'+
+   '<label>Password<input id="admPass" type="password" placeholder="admin123" value="admin123"><span class="err"></span></label>'+
+   '<button class="btn" type="submit" style="margin-top:6px">Log in to Admin Panel</button>'+
+   '<span class="err" id="admErr" style="margin-top:6px"></span>'+
+   '</form></div>';
+
+  $('adminLoginForm').addEventListener('submit',function(ev){
+   ev.preventDefault();
+   var emVal=$('admEmail').value.trim().toLowerCase(), passVal=$('admPass').value;
+   if(emVal==STORE.admin.email.toLowerCase()&&passVal==STORE.admin.pass){
+    S.isAdmin=true; S.on=true; S.role='Admin'; S.name='Administrator'; S.email=STORE.admin.email;
+    save(); route();
+   } else {
+    $('admErr').textContent='Invalid credentials. Default: admin@learnit.com / admin123';
+   }
+  });
+
+  var fBtn=$('fillAdminDemoBtn');
+  if(fBtn){
+   fBtn.addEventListener('click',function(){
+    $('admEmail').value=STORE.admin.email;
+    $('admPass').value=STORE.admin.pass;
+    S.isAdmin=true; S.on=true; S.role='Admin'; S.name='Administrator'; S.email=STORE.admin.email;
+    save(); route();
+   });
+  }
+  return;
+ }
+
+ renderAdminDashboard();
+};
+
+function renderAdminDashboard(){
+ var el=$('admin');
+ var pendingCount=STORE.instructors.filter(function(i){return i.status=='Pending'}).length;
+ var approvedCount=STORE.instructors.filter(function(i){return i.status=='Approved'}).length;
+ var totalRevenue=STORE.registrations.reduce(function(acc,r){return acc+(r.fee||0)},0);
+
+ var h='<div class="adm-header">'+
+  '<div><div style="display:flex;align-items:center;gap:10px"><span class="adm-badge">Super Admin</span><h2 style="margin:0">Admin Control Center</h2></div>'+
+  '<p style="color:var(--mut);margin:4px 0 0">Logged in as <b>'+esc(STORE.admin.email)+'</b> · Manage approvals, schedules &amp; student rosters</p></div>'+
+  '<button class="btn o" id="admSignOutBtn" style="padding:8px 16px;font-size:.88rem">Sign out of Admin</button></div>';
+
+ h+='<div class="adm-kpis">'+
+  '<div class="adm-kpi"><span>Pending Approvals</span><b>'+pendingCount+'</b></div>'+
+  '<div class="adm-kpi"><span>Approved Instructors</span><b>'+approvedCount+'</b></div>'+
+  '<div class="adm-kpi"><span>Registered Students</span><b>'+STORE.registrations.length+'</b></div>'+
+  '<div class="adm-kpi"><span>Total Fees / Revenue</span><b>₹'+totalRevenue.toLocaleString('en-IN')+'</b></div>'+
+  '</div>';
+
+ h+='<div class="adm-tabs">'+
+  '<button class="adm-tab '+(curAdmTab=='instructors'?'on':'')+'" data-atab="instructors">👨‍🏫 Instructor Approvals <span class="badge">'+pendingCount+'</span></button>'+
+  '<button class="adm-tab '+(curAdmTab=='schedules'?'on':'')+'" data-atab="schedules">🗓️ Set Course Schedules <span class="badge">'+C.length+'</span></button>'+
+  '<button class="adm-tab '+(curAdmTab=='students'?'on':'')+'" data-atab="students">🎓 Registered Students Lookup <span class="badge">'+STORE.registrations.length+'</span></button>'+
+  '</div>';
+
+ h+='<div id="admTabContent"></div>';
+ el.innerHTML=h;
+
+ $('admSignOutBtn').addEventListener('click',function(){
+  S.isAdmin=false; S.on=false; save(); route();
+ });
+
+ document.querySelectorAll('[data-atab]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+   curAdmTab=this.getAttribute('data-atab');
+   renderAdminDashboard();
+  });
+ });
+
+ renderAdminTabContent();
+}
+
+function renderAdminTabContent(){
+ var tc=$('admTabContent');
+ if(!tc)return;
+
+ if(curAdmTab=='instructors'){
+  var rows=STORE.instructors.map(function(inst){
+   var acts='';
+   if(inst.status=='Pending'){
+    acts='<button class="btn-sm success" data-act="approve-inst" data-id="'+inst.id+'">✓ Approve</button> <button class="btn-sm danger" data-act="reject-inst" data-id="'+inst.id+'">✕ Reject</button>';
+   } else if(inst.status=='Approved'){
+    acts='<span class="adm-tag approved">Approved</span> <button class="btn-sm o" data-act="reject-inst" data-id="'+inst.id+'" style="margin-left:6px">Revoke</button>';
+   } else {
+    acts='<span class="adm-tag rejected">Rejected</span> <button class="btn-sm success" data-act="approve-inst" data-id="'+inst.id+'" style="margin-left:6px">Re-Approve</button>';
+   }
+   return '<tr><td><b>'+esc(inst.name)+'</b></td><td>'+esc(inst.email)+'</td><td>'+esc(inst.role||'Instructor')+'</td><td>'+esc(inst.appliedDate)+'</td><td><span class="adm-tag '+inst.status.toLowerCase()+'">'+inst.status+'</span></td><td style="white-space:nowrap">'+acts+'</td></tr>';
+  }).join('');
+
+  tc.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'+
+   '<h3 style="margin:0">Instructor Applications</h3>'+
+   '<p style="color:var(--mut);margin:0;font-size:.9rem">Approving an instructor grants them portal access and allows assigning them to courses.</p>'+
+   '</div>'+
+   '<div class="adm-table-wrap"><table class="adm-table"><thead><tr><th>Applicant Name</th><th>Email</th><th>Specialization</th><th>Applied Date</th><th>Status</th><th>Action</th></tr></thead><tbody>'+
+   rows+'</tbody></table></div>';
+
+  tc.querySelectorAll('[data-act]').forEach(function(b){
+   b.addEventListener('click',function(){
+    var actType=this.getAttribute('data-act'), id=this.getAttribute('data-id');
+    var target=STORE.instructors.filter(function(i){return i.id==id})[0];
+    if(target){
+     target.status=(actType=='approve-inst'?'Approved':'Rejected');
+     saveStore();
+     renderAdminDashboard();
+    }
+   });
+  });
+ } else if(curAdmTab=='schedules'){
+  var approvedInsts=STORE.instructors.filter(function(i){return i.status=='Approved'}).map(function(i){return i.name});
+  if(approvedInsts.indexOf('Dr. Meera Joshi')<0)approvedInsts.unshift('Dr. Meera Joshi');
+  if(approvedInsts.indexOf('Karan Patil')<0)approvedInsts.unshift('Karan Patil');
+  if(approvedInsts.indexOf('Sana Khan')<0)approvedInsts.unshift('Sana Khan');
+
+  var editModalHtml='';
+  if(editingCourseId!==null){
+   var curCourse=C[editingCourseId];
+   editModalHtml='<div class="card" style="margin-bottom:24px;border:2px solid var(--deep);padding:24px">'+
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="margin:0">Edit Schedule &amp; Assign Instructor: '+esc(curCourse.t)+'</h3><button id="cancelEditSch" class="btn-sm o">Cancel</button></div>'+
+    '<form id="saveSchForm" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;background:none;border:0;padding:0">'+
+    '<label>Cohort Start Date<input id="schStartDate" type="date" value="'+esc(curCourse.s)+'"></label>'+
+    '<label>Schedule Days &amp; Timings<input id="schTiming" value="'+esc(curCourse.sch)+'"></label>'+
+    '<label>Assigned Instructor<select id="schInst">'+approvedInsts.map(function(name){return '<option'+(name==curCourse.i?' selected':'')+'>'+esc(name)+'</option>'}).join('')+'</select></label>'+
+    '<div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end"><button class="btn" type="submit">Save Live Schedule</button></div>'+
+    '</form></div>';
+  }
+
+  var cRows=C.map(function(c){
+   return '<tr><td><b>'+esc(c.t)+'</b></td><td><span class="tag" style="margin:0">'+c.g+'</span></td><td>'+c.w+'</td><td>'+fmt(c.s)+'</td><td>'+esc(c.sch)+'</td><td><b>'+esc(c.i)+'</b></td><td><button class="btn-sm" data-edit-c="'+c.id+'">Edit Schedule</button></td></tr>';
+  }).join('');
+
+  tc.innerHTML=editModalHtml+
+   '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'+
+   '<h3 style="margin:0">Live Course Schedules &amp; Assigned Instructors</h3>'+
+   '<p style="color:var(--mut);margin:0;font-size:.9rem">Changes update live across course catalog, registration, and details.</p>'+
+   '</div>'+
+   '<div class="adm-table-wrap"><table class="adm-table"><thead><tr><th>Course</th><th>Level</th><th>Duration</th><th>Start Date</th><th>Live Schedule</th><th>Assigned Mentor</th><th>Action</th></tr></thead><tbody>'+
+   cRows+'</tbody></table></div>';
+
+  if(editingCourseId!==null){
+   $('cancelEditSch').addEventListener('click',function(){editingCourseId=null;renderAdminTabContent();});
+   $('saveSchForm').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var sVal=$('schStartDate').value, schVal=$('schTiming').value.trim(), instVal=$('schInst').value;
+    if(sVal)C[editingCourseId].s=sVal;
+    if(schVal)C[editingCourseId].sch=schVal;
+    if(instVal)C[editingCourseId].i=instVal;
+    if(!STORE.schedules)STORE.schedules={};
+    STORE.schedules[editingCourseId]={s:C[editingCourseId].s, sch:C[editingCourseId].sch, i:C[editingCourseId].i};
+    saveStore();
+    editingCourseId=null;
+    drawCourses();
+    renderAdminTabContent();
+   });
+  }
+
+  tc.querySelectorAll('[data-edit-c]').forEach(function(b){
+   b.addEventListener('click',function(){
+    editingCourseId=+this.getAttribute('data-edit-c');
+    renderAdminTabContent();
+   });
+  });
+ } else if(curAdmTab=='students'){
+  var filteredStudents=STORE.registrations.filter(function(r){
+   var qOk=(!admStudentQuery)||(r.name.toLowerCase().indexOf(admStudentQuery)>=0)||(r.email.toLowerCase().indexOf(admStudentQuery)>=0)||(r.course.toLowerCase().indexOf(admStudentQuery)>=0)||(r.phone&&r.phone.indexOf(admStudentQuery)>=0);
+   var cOk=(admStudentCourse=='All')||(r.course==admStudentCourse);
+   return qOk&&cOk;
+  });
+
+  var sRows=filteredStudents.length?filteredStudents.map(function(s){
+   var toggleBtn='<button class="btn-sm o" data-tog-reg="'+s.id+'">'+(s.status=='Active'?'Mark Pending':'Mark Active / Paid')+'</button>';
+   return '<tr><td><b>'+esc(s.name)+'</b></td><td>'+esc(s.email)+'</td><td>'+esc(s.phone||'N/A')+'</td><td>'+esc(s.course)+'</td><td>'+esc(s.batch||'Standard')+'</td><td>'+esc(s.date)+'</td><td><span class="adm-tag '+(s.status=='Active'?'active':'pending')+'">'+s.status+'</span></td><td>'+toggleBtn+'</td></tr>';
+  }).join(''):'<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--mut)">No student records found matching search filters.</td></tr>';
+
+  tc.innerHTML='<div class="adm-bar">'+
+   '<div class="adm-search"><input id="admSQuery" placeholder="Search student name, email, phone..." value="'+esc(admStudentQuery)+'"></div>'+
+   '<div style="display:flex;gap:8px;align-items:center"><label style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:.9rem">Filter Course: <select id="admSCourse" style="width:auto"><option value="All">All Courses</option>'+C.map(function(c){return '<option'+(c.t==admStudentCourse?' selected':'')+'>'+esc(c.t)+'</option>'}).join('')+'</select></label></div>'+
+   '</div>'+
+   '<div class="adm-table-wrap"><table class="adm-table"><thead><tr><th>Student Name</th><th>Email</th><th>Phone</th><th>Course</th><th>Batch</th><th>Registered Date</th><th>Payment / Status</th><th>Action</th></tr></thead><tbody>'+
+   sRows+'</tbody></table></div>';
+
+  $('admSQuery').addEventListener('input',function(){
+   admStudentQuery=this.value.trim().toLowerCase();
+   renderAdminTabContent();
+  });
+
+  $('admSCourse').addEventListener('change',function(){
+   admStudentCourse=this.value;
+   renderAdminTabContent();
+  });
+
+  tc.querySelectorAll('[data-tog-reg]').forEach(function(b){
+   b.addEventListener('click',function(){
+    var id=this.getAttribute('data-tog-reg');
+    var regItem=STORE.registrations.filter(function(r){return r.id==id})[0];
+    if(regItem){
+     regItem.status=(regItem.status=='Active'?'Payment pending':'Active');
+     saveStore();
+     renderAdminTabContent();
+    }
+   });
+  });
+ }
+}
+window.addEventListener('hashchange',route);
+renderRegister();
+route();
+(async function(){try{if(!window.claude||!claude.use)return;var u=await claude.use('user'),d=await claude.use('db');if(!u||!d)return;var id=await u.id();DOC=d.doc('data/users/'+id+'/learner');var s=await DOC.get();if(s.exists)S=Object.assign(S,s.data());else if(S.email)DOC.set(JSON.parse(JSON.stringify(S))).catch(function(){});route()}catch(x){DOC=null}})();
+</script>
+</body>
+</html>
